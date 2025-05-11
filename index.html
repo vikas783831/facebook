@@ -1,590 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16980563114">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-16980563114');
-</script>
-
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1B8DHD02FL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1B8DHD02FL');
-</script>
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Tutorial Hub</title>
+    <title>Facebook Support Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1877f2;
+            --primary: #1877f2;
             --primary-dark: #166fe5;
-            --bg-color: #f0f2f5;
-            --text-color: #333;
-            --card-bg: #fff;
-            --border-color: #dddfe2;
-            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --primary-light: #e7f3ff;
+            --accent: #00b8ff;
+            --dark: #18191a;
+            --light: #ffffff;
+            --gray: #f0f2f5;
+            --text: #050505;
+            --text-light: #65676b;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
-        .dark-mode {
-            --primary-color: #2d88ff;
-            --bg-color: #18191a;
-            --text-color: #e4e6eb;
-            --card-bg: #242526;
-            --border-color: #3e4042;
-            --shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        /* Global Styles */
+
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
+            color: var(--text);
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            transition: all 0.3s ease;
+            background-color: var(--gray);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-        
+
         /* Header */
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--light);
             padding: 30px 0;
             text-align: center;
-            border-bottom: 5px solid var(--primary-dark);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf5NDK.png') no-repeat;
+            background-position: right bottom;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
         h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
-        
+
         .tagline {
             font-size: 1.2rem;
             opacity: 0.9;
+            margin-top: 10px;
         }
-        
-        /* Theme Toggle */
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
+
+        /* Customer Care Banner */
+        .customer-care {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: var(--shadow);
             display: flex;
             align-items: center;
-            gap: 5px;
-        }
-        
-        /* Quick Help Navigation */
-        .quick-help {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin: 25px 0;
-        }
-        
-        .quick-help-links {
-            display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 20px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .care-number {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .care-icon {
+            background-color: var(--primary-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
         }
-        
-        .quick-help a {
-            background-color: var(--primary-color);
+
+        .number-details h3 {
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .number-details p {
+            margin: 5px 0 0;
+            color: var(--text-light);
+        }
+
+        .call-button {
+            background-color: var(--primary);
             color: white;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .quick-help a:hover {
+
+        .call-button:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
         }
-        
-        /* Content Sections */
-        section {
-            background-color: var(--card-bg);
+
+        /* Quick Help */
+        .quick-help {
+            background-color: var(--light);
+            border-radius: 12px;
             padding: 25px;
-            border-radius: 8px;
+            margin: 30px 0;
             box-shadow: var(--shadow);
-            margin-bottom: 25px;
-            border: 1px solid var(--border-color);
         }
-        
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        
-        h3 {
-            color: var(--primary-color);
-        }
-        
-        .tutorial-card {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .tutorial-card:last-child {
-            border-bottom: none;
-        }
-        
-        .tutorial-title {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        
-        .steps {
-            margin-left: 20px;
-        }
-        
-        .step {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .step:before {
-            content: "•";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            left: 5px;
-        }
-        
-        /* Articles Grid */
-        .articles-grid {
+
+        .quick-help-links {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
-        
-        .article-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
+
+        .quick-help a {
+            background-color: var(--primary-light);
+            color: var(--primary);
             padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-help a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .quick-help a i {
+            font-size: 1.2rem;
+        }
+
+        /* Content Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background-color: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s;
+            transition: var(--transition);
         }
-        
-        .article-card:hover {
+
+        .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-        
-        .article-card h4 {
-            margin-top: 0;
-            color: var(--primary-color);
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
         }
-        
-        /* FAQ Section */
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .card-body li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .card-body li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
         .faq-item {
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
         }
-        
+
         .faq-question {
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--primary);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 1.1rem;
         }
-        
+
         .faq-answer {
-            margin-top: 10px;
+            margin-top: 15px;
             display: none;
+            color: var(--text-light);
+            line-height: 1.7;
         }
-        
+
         .faq-answer.show {
             display: block;
         }
-        
-        /* Newsletter */
-        .newsletter {
-            background-color: var(--primary-color);
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
             color: white;
-            padding: 30px;
-            border-radius: 8px;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--light);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #b0b3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--light);
+            text-decoration: underline;
+        }
+
+        .copyright {
             text-align: center;
-            margin: 30px 0;
+            padding-top: 20px;
+            border-top: 1px solid #3e4042;
+            color: #b0b3b8;
+            font-size: 0.9rem;
         }
-        
-        .newsletter input {
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            width: 300px;
-            max-width: 100%;
-            margin-right: 10px;
-        }
-        
-        .newsletter button {
-            padding: 12px 20px;
-            background-color: white;
-            color: var(--primary-color);
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
-            .quick-help-links, .contact-options {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .customer-care {
                 flex-direction: column;
+                text-align: center;
             }
             
-            .articles-grid {
+            .care-number {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .quick-help-links {
                 grid-template-columns: 1fr;
-            }
-            
-            .newsletter input {
-                margin-bottom: 10px;
-                margin-right: 0;
-                width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <button class="theme-toggle" id="themeToggle">
-                <span>🌙</span> Dark Mode
-            </button>
-            <h1>Facebook Tutorial Hub</h1>
-            <p class="tagline">Master Facebook with our comprehensive guides and resources</p>
+        <div class="header-content">
+            <div class="container">
+                <h1>Facebook Support Hub</h1>
+                <p class="tagline">Get help with your Facebook account, privacy, and more</p>
+            </div>
         </div>
     </header>
-    
+
     <main class="container">
-        <div class="search-box">
-            <input type="text" placeholder="Search tutorials..." id="searchInput">
+        <!-- Customer Care Section -->
+        <div class="customer-care">
+            <div class="care-number">
+                <div class="care-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="number-details">
+                    <h3>Facebook Customer Care</h3>
+                    <p>Available 24/7 for account support</p>
+                </div>
+            </div>
+            <a href="tel:+18184503244" class="call-button">
+                <i class="fas fa-phone"></i> Call Now: +1 (818) 450-3244
+            </a>
         </div>
-        
+
+        <!-- Quick Help Section -->
         <div class="quick-help">
-            <h3>Quick Links</h3>
+            <h2><i class="fas fa-bolt"></i> Quick Help</h2>
             <div class="quick-help-links">
-                <a href="#account">Account Help</a>
-                <a href="#privacy">Privacy Settings</a>
-                <a href="#groups">Groups & Pages</a>
-                <a href="#messenger">Messenger</a>
-                <a href="#business">Business Tools</a>
-                <a href="#troubleshooting">Troubleshooting</a>
-                <a href="#articles">Featured Articles</a>
-                <a href="#faq">FAQs</a>
+                <a href="#account">
+                    <i class="fas fa-user-circle"></i> Account Help
+                </a>
+                <a href="#privacy">
+                    <i class="fas fa-lock"></i> Privacy Settings
+                </a>
+                <a href="#hacked">
+                    <i class="fas fa-shield-alt"></i> Hacked Accounts
+                </a>
+                <a href="#messenger">
+                    <i class="fas fa-comment-dots"></i> Messenger
+                </a>
+                <a href="#business">
+                    <i class="fas fa-briefcase"></i> Business Tools
+                </a>
+                <a href="#report">
+                    <i class="fas fa-flag"></i> Report Issues
+                </a>
+                <a href="#payments">
+                    <i class="fas fa-credit-card"></i> Payments
+                </a>
+                <a href="#groups">
+                    <i class="fas fa-users"></i> Groups & Pages
+                </a>
             </div>
         </div>
-        
-        <!-- Existing tutorial sections (same as before) -->
-        
-        <section id="articles">
-            <h2>Featured Articles</h2>
-            <div class="articles-grid">
-                <!-- Account Articles -->
-                <div class="article-card">
-                    <h4>How to Secure Your Facebook Account</h4>
-                    <p>Learn the best practices for keeping your account safe from hackers.</p>
-                    <a href="#">Read More →</a>
+
+        <!-- Main Content Grid -->
+        <div class="card-grid">
+            <div class="card" id="account">
+                <div class="card-header">
+                    <i class="fas fa-user-circle"></i> Account Help
                 </div>
-                
-                <div class="article-card">
-                    <h4>Two-Factor Authentication: Complete Guide</h4>
-                    <p>Step-by-step instructions for setting up 2FA on Facebook.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <!-- Privacy Articles -->
-                <div class="article-card">
-                    <h4>Facebook Privacy Settings You Should Change Now</h4>
-                    <p>Critical privacy settings everyone should review.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>How to Stop Facebook Tracking Your Activity</h4>
-                    <p>Limit how Facebook collects and uses your data.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <!-- Groups & Pages Articles -->
-                <div class="article-card">
-                    <h4>Growing Your Facebook Group: 10 Proven Strategies</h4>
-                    <p>Expert tips for building an engaged community.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>Facebook Page vs Group: Which Should You Use?</h4>
-                    <p>The key differences and when to use each.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <!-- Messenger Articles -->
-                <div class="article-card">
-                    <h4>Hidden Messenger Features You're Not Using</h4>
-                    <p>Discover powerful tools most users don't know about.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>How to Use Messenger for Customer Service</h4>
-                    <p>Set up automated responses and quick replies.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <!-- Business Articles -->
-                <div class="article-card">
-                    <h4>Facebook Ads: A Beginner's Guide</h4>
-                    <p>Everything you need to know to start advertising.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>How to Create a Facebook Shop</h4>
-                    <p>Sell products directly through your Facebook Page.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <!-- Troubleshooting Articles -->
-                <div class="article-card">
-                    <h4>How to Fix Common Facebook Problems</h4>
-                    <p>Solutions for login issues, loading errors, and more.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>What to Do If Your Account Gets Hacked</h4>
-                    <p>Step-by-step recovery guide.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <!-- Advanced Articles -->
-                <div class="article-card">
-                    <h4>Using Facebook Analytics to Grow Your Audience</h4>
-                    <p>How to interpret Insights data effectively.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>The Complete Guide to Facebook Live</h4>
-                    <p>Equipment, setup, and best practices for live streaming.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>Facebook Algorithm: How It Works in 2023</h4>
-                    <p>Understand what content gets prioritized in feeds.</p>
-                    <a href="#">Read More →</a>
-                </div>
-                
-                <div class="article-card">
-                    <h4>Creating Accessible Facebook Content</h4>
-                    <p>Make your posts inclusive for all users.</p>
-                    <a href="#">Read More →</a>
+                <div class="card-body">
+                    <ul>
+                        <li>How to create a Facebook account</li>
+                        <li>Recover a hacked or disabled account</li>
+                        <li>Change your name or personal information</li>
+                        <li>Two-factor authentication setup</li>
+                        <li>Delete or deactivate your account</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-        
-        <section id="faq">
-            <h2>Frequently Asked Questions</h2>
+
+            <div class="card" id="privacy">
+                <div class="card-header">
+                    <i class="fas fa-lock"></i> Privacy Settings
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Control who sees your posts</li>
+                        <li>Limit past post visibility</li>
+                        <li>Manage profile information visibility</li>
+                        <li>Block users and manage blocked list</li>
+                        <li>Adjust tagging settings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" id="hacked">
+                <div class="card-header">
+                    <i class="fas fa-shield-alt"></i> Hacked Accounts
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Signs your account was hacked</li>
+                        <li>Immediate steps to secure your account</li>
+                        <li>How to report a hacked account</li>
+                        <li>Preventing future hacks</li>
+                        <li>Recovering lost information</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2><i class="far fa-question-circle"></i> Frequently Asked Questions</h2>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>How do I permanently delete my Facebook account?</span>
-                    <span>+</span>
+                    <span>How do I contact Facebook support directly?</span>
+                    <i class="fas fa-plus"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Go to Settings & Privacy → Settings → Your Facebook Information → Deactivation and Deletion. Select "Permanently Delete Account" and follow the instructions. Note that it may take up to 30 days for complete deletion.</p>
+                    <p>You can contact Facebook support by calling our customer care number at <strong>+1 (888) 987-9070</strong> or by visiting the Facebook Help Center and using the "Report a Problem" feature. For business accounts, additional support options are available in your Business Manager settings.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>Why can't I see some of my friends' posts?</span>
-                    <span>+</span>
+                    <span>Why was my account disabled and how do I recover it?</span>
+                    <i class="fas fa-plus"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>This is likely due to Facebook's algorithm prioritizing certain content. You can adjust this by going to the friend's profile, clicking "Following", and selecting "See First" to prioritize their posts.</p>
+                    <p>Accounts are typically disabled for violating Facebook's Community Standards. To appeal, visit facebook.com/help and follow the account disabled instructions. You'll need to provide identification to verify your account. The review process may take several days.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>How do I stop Facebook notifications?</span>
-                    <span>+</span>
+                    <span>How can I increase my account security?</span>
+                    <i class="fas fa-plus"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Go to Settings & Privacy → Settings → Notifications. Here you can customize which notifications you receive and how you receive them (push, email, etc.).</p>
+                    <p>We recommend: 1) Enabling two-factor authentication, 2) Using a strong, unique password, 3) Being cautious of suspicious messages, 4) Regularly checking active sessions, and 5) Keeping your contact information up to date. All these options are available in your Security Settings.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>Is there a way to see who viewed my profile?</span>
-                    <span>+</span>
+                    <span>What should I do if I see fake accounts impersonating me?</span>
+                    <i class="fas fa-plus"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>No, Facebook doesn't allow users to see who viewed their profile. Any third-party apps claiming to show this information are scams.</p>
+                    <p>Go to the fake profile, click the three dots (...) on the cover photo, and select "Find support or report profile". Choose "Pretending to be someone" and select your name. Facebook will review the report typically within 24 hours.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>How do I change my name on Facebook?</span>
-                    <span>+</span>
+                    <span>How do I manage what I see in my News Feed?</span>
+                    <i class="fas fa-plus"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Go to Settings & Privacy → Settings → Personal Information → Name. Enter your new name and click "Review Change". Note that you can only change your name every 60 days.</p>
+                    <p>You can prioritize who to see first by visiting their profile and selecting "Favorites" or "See First" in the Following dropdown. You can also unfollow people without unfriending them, or adjust your feed preferences in Settings.</p>
                 </div>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>What should I do if I see fake accounts?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Go to the fake profile, click the three dots (...) on the cover photo, and select "Find support or report profile". Follow the prompts to report the account to Facebook.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>How do I download all my Facebook data?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Go to Settings & Privacy → Settings → Your Facebook Information → Download Your Information. Select the data you want and the format, then click "Create File".</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>Why was my post removed by Facebook?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Facebook removes content that violates its Community Standards. You'll receive a notification explaining why it was removed. If you believe it was a mistake, you can appeal the decision.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>How do I create a Facebook fundraiser?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Go to facebook.com/fundraisers and click "Raise Money". Choose between nonprofit and personal causes, then follow the setup instructions. You'll need to provide details about your fundraiser.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleAnswer(this)">
-                    <span>What's the difference between a Page and a Profile?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Profiles are for individual people, while Pages are for businesses, organizations, and public figures. Pages have analytics and advertising features that profiles don't have.</p>
-                </div>
-            </div>
-        </section>
-        
-        <div class="newsletter">
-            <h3>Stay Updated with Facebook Tips</h3>
-            <p>Subscribe to our newsletter for weekly tutorials and updates</p>
-            <form id="newsletterForm">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
         </div>
     </main>
-    
+
     <footer>
         <div class="container">
-            <div class="resources">
-                <a href="https://www.facebook.com">Facebook Home</a>
-                <a href="https://www.facebook.com/help">Help Center</a>
-                <a href="https://www.facebook.com/about">About Facebook</a>
-                <a href="https://www.facebook.com/policies">Policies</a>
-                <a href="https://www.facebook.com/communitystandards">Community Standards</a>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community Help</a></li>
+                        <li><a href="#">Report a Problem</a></li>
+                        <li><a href="#">Support Inbox</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Account</h3>
+                    <ul>
+                        <li><a href="#">Login Help</a></li>
+                        <li><a href="#">Privacy Settings</a></li>
+                        <li><a href="#">Security Tips</a></li>
+                        <li><a href="#">Account Recovery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Safety Center</a></li>
+                        <li><a href="#">Business Help</a></li>
+                        <li><a href="#">Developer Docs</a></li>
+                        <li><a href="#">Facebook Blueprint</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Community Standards</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>© 2023 Facebook Tutorial Hub. This is an independent resource not affiliated with Facebook, Inc.</p>
+            
+            <div class="copyright">
+                <p>© 2023 Facebook Support Hub. This is an independent resource providing support information for Facebook users.</p>
+                <p>Official customer care: +1 (818) 450-3244</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            themeToggle.innerHTML = isDark ? '<span>☀️</span> Light Mode' : '<span>🌙</span> Dark Mode';
-        });
-        
-        // FAQ Toggle
+        // FAQ Toggle Function
         function toggleAnswer(question) {
-            const answer = question.nextElementSibling;
-            const plusMinus = question.querySelector('span:last-child');
+            const answer = question.parentElement.querySelector('.faq-answer');
+            const icon = question.querySelector('i');
             
             answer.classList.toggle('show');
-            plusMinus.textContent = answer.classList.contains('show') ? '−' : '+';
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
         }
         
-        // Newsletter Form
-        const newsletterForm = document.getElementById('newsletterForm');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thanks for subscribing! You\'ll receive our next newsletter soon.');
-            newsletterForm.reset();
-        });
-        
-        // Basic Search Functionality
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                const term = searchInput.value.toLowerCase();
-                alert(`Search functionality would look for: "${term}". This is a demo - a full implementation would search through all content.`);
-            }
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
